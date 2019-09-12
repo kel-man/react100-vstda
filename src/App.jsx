@@ -27,14 +27,31 @@ import axios from 'axios';
 //      </div>
 //    );
 //  };
-
+class TodoForm extends Component {
+  handleSubmit(e){
+    this.setState({
+      state: form
+    })
+  }
+  render(){
+    return(
+      <div>
+        <form>
+          <h2>New Item: </h2>
+          <input type='text' name='title' className='title'/>
+          <input type='text' name='description' className='description input card'/>
+        </form>
+      </div>
+    );
+  }
+}
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
       priority:'',
-      length:'',
+      place:'',
       name:'',
       details:'',
       editable:'',
@@ -80,26 +97,31 @@ class App extends Component {
   }
   
   /* handleSubmit(e){
+    e.preventDefault();
+    let x = Number(this.state.place);
+    let y = x + 1;
       let newItem = {
         priority: this.state.priority,
         name: this.state.name,
         details: this.state.details,
         editable: this.state.editable,
         removable: this.state.removable
+        place: y;
       }
       this.setState({
         items: newItem
       });
   }*/
-  \
+  
   render() {
     return (
       
        <div className='container' style={{display:'flex', flexFlow:'column wrap', justifyContent:'space-around', alignContent:'space-around', height:'100%'}}>
+         <TodoForm/>
          <ListItem/>
          <ListItem/>
          <ListItem/>
-      {/* //   <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
+         <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
          <hr style={{borderTop:'3px solid white'}}/>
          <form className='input form card'>
           <div className='input card' style={{display:'flex', flexFlow:'row wrap', alignSelf:'space-around', alignContent:'space-around', height:'100%'}}>
@@ -114,7 +136,7 @@ class App extends Component {
               <button type='submit' className='submit' onClick={this.handleSubmit} />
             </div>
          </div> 
-        </form>*/}
+        </form>
        </div>
     );
   }
