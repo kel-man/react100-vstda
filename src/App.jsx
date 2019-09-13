@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ListItem from './listitem';
 import axios from 'axios';
+import TodoForm from './todoform';
+// import customData from '../public/data.json'
 /**It is imperative to plan this out correctly. Everything about the structure must be premeditated
  * DO NOT RUSH
  * DO NOT PANIC
@@ -19,7 +21,7 @@ import axios from 'axios';
 //          input = node;
 //       }}/>
 //       <button onClick={() => {
-//         addTodo(input.value);
+//         addTodo(input.value); 
 //         input.value = '';
 //       }}>
 //         +
@@ -27,35 +29,20 @@ import axios from 'axios';
 //      </div>
 //    );
 //  };
-class TodoForm extends Component {
-  handleSubmit(e){
-    this.setState({
-      state: form
-    })
-  }
-  render(){
-    return(
-      <div>
-        <form>
-          <h2>New Item: </h2>
-          <input type='text' name='title' className='title'/>
-          <input type='text' name='description' className='description input card'/>
-        </form>
-      </div>
-    );
-  }
-}
-
 class App extends Component {
+
   constructor(props){
     super(props);
     this.state={
-      priority:'',
-      place:'',
-      name:'',
-      details:'',
-      editable:'',
-      removable:''
+      priority: '',
+      place: '',
+      name: '',
+      description: 'This description passed from App',
+      editable: '',
+      removable: '',
+      priorityArray: [],
+      array: [3, 5, 6],
+      items: []
     }
     this.handleSelect=this.handleSelect.bind(this);
     // this.handleSubmit=this.handleSubmit.bind(this);
@@ -63,24 +50,10 @@ class App extends Component {
     // this.handleDescriptionChange=this.handleDescriptionChange.bind(this); 
   }
 
-  // compontentWillMount(){
-  //   axios
-  //   .get('filenamegoeshere.json')
-  //   .then(response => list.data)
-  //   .then()
-  // }
-  
-  // getInitialState: function(){
-  //   return{
-  //     'city': '',
-  //     'zip': '',
-  //     'temp': ''
-  //   }
-  // }
-
   handleSelect(e){
     this.setState({
-      priority: e.target.value
+      priority: e.target.value,
+      priorityArray: e.target.value
     });
   }
   
@@ -96,50 +69,42 @@ class App extends Component {
     })
   }
   
-  /* handleSubmit(e){
-    e.preventDefault();
-    let x = Number(this.state.place);
-    let y = x + 1;
-      let newItem = {
-        priority: this.state.priority,
-        name: this.state.name,
-        details: this.state.details,
-        editable: this.state.editable,
-        removable: this.state.removable
-        place: y;
-      }
-      this.setState({
-        items: newItem
-      });
-  }*/
+  componentDidMount(){
+    // var json = require('./data.json');
+    // $.getJSON("data.json")
+    axios
+    .get('./data.json')
+    .then(response => response.data)
+    // .then(data => console.log(data))
+    .then(items => this.setState({ items }));
+    // .catch(error => console.error(error));
+  }
+
   
   render() {
     return (
       
-       <div className='container' style={{display:'flex', flexFlow:'column wrap', justifyContent:'space-around', alignContent:'space-around', height:'100%'}}>
-         <TodoForm/>
-         <ListItem/>
-         <ListItem/>
-         <ListItem/>
+      <div className='container'>
          <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
          <hr style={{borderTop:'3px solid white'}}/>
-         <form className='input form card'>
-          <div className='input card' style={{display:'flex', flexFlow:'row wrap', alignSelf:'space-around', alignContent:'space-around', height:'100%'}}>
-            <div className='inputBox' style={{width:'30%', justifyContent:'left'}}>
-              <h3 className='box-title' style={{color:'black', backgroundColor:'#f5f5f5', alignContent:'left'}}>Add New Todo: I want to...</h3>
-              <input className='create-todo-text card'/>
-              <select className='priority card' onChange={this.handleSelect} type='number' value={this.state.priority}>
-                <option className='low-priority card' value='1' style={{}}>Low</option>
-                <option className='mid-priority card' value='2' style={{}}>Medium</option>
-                <option className='high-priority card' value='3' style={{}}>Critical!!!</option>
-              </select>
-              <button type='submit' className='submit' onClick={this.handleSubmit} />
-            </div>
-         </div> 
-        </form>
+        <TodoForm/>
+        {this.state.items.map(item =>(
+           <ListItem 
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              priority={item.priority} />
+        ))}
        </div>
     );
   }
-}
-
-export default App;
+  
+  // renderList(){
+    //   return(
+      //     <ListItem/>
+      //   )
+      // }
+    }
+    
+    export default App;
+    
