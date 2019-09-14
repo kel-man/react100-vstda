@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './listitem';
-import axios from 'axios';
+// import axios from 'axios';
 import TodoForm from './todoform';
+// import EditForm from './editform';
+import ListBox from './listbox';
 // import customData from '../public/data.json'
 /**It is imperative to plan this out correctly. Everything about the structure must be premeditated
  * DO NOT RUSH
@@ -13,22 +15,6 @@ import TodoForm from './todoform';
  * the rest of the structure for this program is just a combination of TopSpots and Change Calculator, with a ListItem component fit within a couple containers using the json information to populate each element
  */
 
-//  const TodoForm = ({addTodo}) => {
-//    let input;
-//    return (
-//      <div>
-//        input ref={node => {
-//          input = node;
-//       }}/>
-//       <button onClick={() => {
-//         addTodo(input.value); 
-//         input.value = '';
-//       }}>
-//         +
-//       </button>
-//      </div>
-//    );
-//  };
 class App extends Component {
 
   constructor(props){
@@ -70,32 +56,31 @@ class App extends Component {
   }
   
   componentDidMount(){
-    // var json = require('./data.json');
-    // $.getJSON("data.json")
-    axios
-    .get('./data.json')
-    .then(response => response.data)
-    // .then(data => console.log(data))
-    .then(items => this.setState({ items }));
-    // .catch(error => console.error(error));
+    // axios
+    // .get('./data.json')
+    localStorage.setItem('myData', '"This is test data"');
+    localStorage
+    .getItem('myData');
+    response => response.data;
+    items => this.setState({ items });
+    console.log(myData);
   }
 
   
   render() {
     return (
-      
-      <div className='container'>
-         <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
-         <hr style={{borderTop:'3px solid white'}}/>
-        <TodoForm/>
-        {this.state.items.map(item =>(
-           <ListItem 
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              priority={item.priority} />
-        ))}
-       </div>
+      <div className='container' id='mainContainer'>
+        <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
+        <hr style={{borderTop:'3px solid white'}}/>
+        <div style={{display:'flex', flexFlow:'row wrap', justifyContent:'center'}}>
+          <div className='container' style={{width:'28%', alignSelf:'left'}}>
+            <TodoForm/>
+          </div>
+          <div style={{width:'60%', alignSelf:'right'}}>
+            <ListBox></ListBox>
+          </div>
+        </div>
+      </div>
     );
   }
   

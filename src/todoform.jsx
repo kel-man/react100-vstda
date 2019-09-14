@@ -2,14 +2,18 @@ import React, {Component} from 'react'
 
 class TodoForm extends Component{
     handleSubmit(e){
-    this.setState({
-        list: array
-    });
+        this.setState({
+            list: e.target.value
+        });
+        localStorage.setItem('myData', e.target.value); 
+        console.log('myData');
     } 
+
+    
 
     render(){
         return(
-        <div style={{display:'flex', justifySelf:'left'}}>
+        <div className='form card' style={{display:'flex', justifySelf:'left'}}>
             <form style={{display:'flex', flexFlow:'column nowrap', justifyContent:'space-around left', alignContent:'space-around', height:'100%'}}>
                 <h2 style={{color:'black'}}>New Item: </h2>
                 <input type='text' name='title' className='title' placeholder='Create To-Do Item...'/>
