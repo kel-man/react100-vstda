@@ -20,12 +20,13 @@ class App extends Component {
       place: '',
       name: '',
       description: 'This description passed from App',
-      editable: '',
+      isEditable: '',
       removable: '',
       priorityArray: [],
       list: []
     }
     this.addItem=this.addItem.bind(this);
+    // this.renderList=this.renderList.bind(this);
   }
   // componentDidMount(){
   //   // axios
@@ -37,24 +38,27 @@ class App extends Component {
   //   items => this.setState({ items });
   //   console.log(myData);
   // }
-  addItem(item){
-    var tempItem = this.state.list;
-    var newList = tempItem.concat(item);
-    console.log(newList);
+  addItem(data){
+    let tempItem = this.state.list;
+    let newList = tempItem.concat([data]);
     this.setState({
       list: newList
-    })
-    // var newState = React.addons.update(this.state, {
-    //   list: {
-    //     $push: [item]
-    //   }
-    // });
-    // this.setState(newState);
-   
-    // this.setState({
-    //   list: this.state.list.concat([item])
-    // });
+    });
   }
+  // renderList(){
+  //   let storage = this.state.list;
+  //   return(
+  //     <div>
+  //   {storage.map(item, index =>(
+  //     <ListItem 
+  //         key={index}
+  //         title={item.title}
+  //         description={item.description}
+  //         priority={item.priority} />
+  // ))}
+  // </div>
+  //   )
+  // }
   
   render() {
     return (
@@ -66,7 +70,7 @@ class App extends Component {
             <TodoForm addItem={this.addItem} />
           </div>
           <div style={{width:'60%', alignSelf:'right'}}>
-            <ListBox/>
+            <ListBox list={this.state.list}/>
           </div>
         </div>
       </div>

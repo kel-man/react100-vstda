@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 class TodoForm extends Component{
     constructor(props){
@@ -7,22 +7,25 @@ class TodoForm extends Component{
             item:[],
             title:'',
             description:'',
-            editable:false,
+            isEditable:'',
             priority:'1'
         }
         this.handleTitle=this.handleTitle.bind(this);
         this.handleDescription=this.handleDescription.bind(this);
         this.handleSelect=this.handleSelect.bind(this);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleButtonClick=this.handleButtonClick.bind(this);
+        this.handleToggle=this.handleToggle.bind(this);
     }
 
-    handleSubmit(e){
-        let item = {
+    handleButtonClick(e){
+        // e.preventDefault();
+        var item = {
             title: this.state.title,
             description: this.state.description,
-            priority: this.state.priority
+            priority: this.state.priority,
+            isEditable: this.state.isEditable
         }
-        this.props.addItem(item);
+        this.props.addItem(item); 
     }
     handleTitle(e){
         this.setState({
@@ -39,25 +42,35 @@ class TodoForm extends Component{
             priority: e.target.value
         });
     }
+    handleToggle(e){
+        this.setState({
+            isEditable: e.target.value
+        });
+    }
+    // formReset(){
+        
+    // }
 
     render(){
         return(
         <div className='form card' style={{display:'flex', alignContent:'space-around', justifyContent:'space-around'}}>
-            <form style={{display:'flex', flexFlow:'column nowrap', alignContent:'space-around'}}>
+            {/* <form style={{display:'flex', flexFlow:'column nowrap', alignContent:'space-around'}}> */}
                 <h4 className='card-header' style={{color:'black'}}>New Item: </h4>
                 <input type='text' name='title' className='title' placeholder='TITLE' onChange={this.handleTitle} value={this.state.title}/>
                 <input type='text' name='description' className='description input card' placeholder='DESCRIPTION' onChange={this.handleDescription} value={this.state.description}/>
-                <select className='priority card' onChange={this.handleSelect} type='number'>
-                    <option className='low-priority' value='1' style={{backgroundColor:'green'}}>Low</option>
-                    <option className='mid-priority' value='2' style={{color:'yellow'}}>Medium</option>
-                    <option className='high-priority' value='3' style={{color:'red'}}>Critical!!!</option>
+                <select className='priority' onChange={this.handleSelect} type='number' value={this.state.priority}>
+                    <option className='low-priority' value='#66ff99' style={{backgroundColor:'green'}}>Low</option>
+                    <option className='mid-priority' value='#ffff00' style={{color:'yellow'}}>Medium</option>
+                    <option className='high-priority' value='#ff0000' style={{color:'red'}}>Critical!!!</option>
                 </select>
-                <input type='checkbox' name='isEditable'/>
-                <button type='submit' className='submit card' onClick={this.handleSubmit} style={{justifyContent:'flex-start'}}>Submit!</button>
-            </form>
+                <input type='checkbox' name='editToggle' onClick={this.handleToggle}/>
+                <button type='submit' className='submit card' onClick={this.handleButtonClick} style={{justifyContent:'flex-start'}}>Add Item!</button>
+            {/* </form> */}
             </div>
         );
     }
 }
+
+// this.handleSubmit(this);
 
 export default TodoForm;
