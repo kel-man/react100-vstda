@@ -21,7 +21,7 @@ class TodoForm extends Component{
         // e.preventDefault();
         var item = {
             title: this.state.title,
-            description: this.state.description,
+            description: this.state.description, 
             priority: this.state.priority,
             isEditable: this.state.isEditable
         }
