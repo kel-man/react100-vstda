@@ -74,10 +74,10 @@ class TodoForm extends Component{
                     <option className='mid-priority' value='#b3b300' style={{color:'#b3b300'}}>Medium</option>
                     <option className='high-priority' value='#e62e00' style={{color:'#e62e00'}}>Critical!!!</option>
                 </select>
-                <tr >
+                {/* <tr > */}
                 <label>Enable editing?............</label>
                 <input type='checkbox' className='editToggle' onChange={this.handleToggle}/>
-                </tr>
+                {/* </tr> */}
                 <button type='submit' className='submit card' onClick={this.handleButtonClick} >Add Item!</button>
             </div>
         );
