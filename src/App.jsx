@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import TodoForm from './todoform';
 // import EditForm from './editform';
 import ListBox from './listbox';
-/**It is imperative to plan this out correctly. Everything about the structure must be premeditated
- * DO NOT RUSH
- * DO NOT PANIC
- * DO NOT GET FRUSTRATED
- * JUST GO PIECE BY PIECE
- * YOU GOT THIS 
- */
 
 class App extends Component {
 
@@ -26,18 +18,8 @@ class App extends Component {
       list: []
     }
     this.addItem=this.addItem.bind(this);
-    // this.renderList=this.renderList.bind(this);
   }
-  // componentDidMount(){
-  //   // axios
-  //   // .get('./data.json')
-  //   localStorage.setItem('myData', '"This is test data"');
-  //   localStorage
-  //   .getItem('myData');
-  //   response => response.data;
-  //   items => this.setState({ items });
-  //   console.log(myData);
-  // }
+
   addItem(data){
     let tempItem = this.state.list;
     let newList = tempItem.concat([data]);
@@ -45,20 +27,6 @@ class App extends Component {
       list: newList
     });
   }
-  // renderList(){
-  //   let storage = this.state.list;
-  //   return(
-  //     <div>
-  //   {storage.map(item, index =>(
-  //     <ListItem 
-  //         key={index}
-  //         title={item.title}
-  //         description={item.description}
-  //         priority={item.priority} />
-  // ))}
-  // </div>
-  //   )
-  // }
   
   render() {
     return (
