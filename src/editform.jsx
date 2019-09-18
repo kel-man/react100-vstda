@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ListBox from './listbox';
 
 export default class EditForm extends Component{
     constructor(props){
@@ -7,24 +8,34 @@ export default class EditForm extends Component{
             isEditable: true,
             isBeingEdited: false,
             isSubmitted: false,
-            isComplete: false
+            isComplete: false,
+            permissionsAlert: false
         }
     }
+
+    handleEdit(){
+        if(this.isEditable === true){
+            this.setState({
+                isBeingEdited: true
+            });
+        }
+        if(this.isEditable === false){
+            this.setState({
+                permissionsAlert: true
+            });
+        }
+    }
+
+    handleRemove(){
+        props.removeItem(props.key);
+    }
+
     render(){
-        // if(this.isBeingEdited === false){
             return(
                 <div className='button container'>
-                    <input type='image' src='./editIcon.png' className='edit button'/>
-                    <input type='image' src='./delete.png' className='remove button'/>
+                    <input type='image' src='./editIcon.png' className='edit button' onClick={this.handleEdit}/>
+                    <input type='image' src='./delete.png' className='remove button' onClick={this.handleRemove}/>
                 </div>
             );
         }
-    //     if(this.isBeingEdited === true, this.isEditable === true){
-    //         return(
-    //             <div>
-    //                 <textarea></textarea>
-    //             </div>
-    //         )
-    //     }
-    // }
 }

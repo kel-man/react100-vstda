@@ -13,9 +13,9 @@ export default class ListBox extends Component{
                 {storage.map((item, index) =>(
                     <ListItem 
                         key={index}
-                        // title={item.title}
                         description={item.description}
-                        priority={item.priority} />
+                        priority={item.priority} 
+                        removeItem={this.removeItem} />
                 ))}
             </div>
         )

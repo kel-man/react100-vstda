@@ -8,16 +8,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      // priority: '',
-      // place: '',
-      // name: '',
-      // description: 'This description passed from App',
-      // isEditable: '',
-      // removable: '',
-      // priorityArray: [],
       list: []
     }
     this.addItem=this.addItem.bind(this);
+    this.removeItem=this.removeItem.bind(this);
   }
 
   addItem(data){
@@ -28,6 +22,14 @@ class App extends Component {
     });
   }
   
+  removeItem(index){
+    let tempItem = this.state.list;
+    let newList = tempItem.splice(index);
+    this.setState({
+      list: newList
+    });
+  }
+
   render() {
     return (
       <div className='container' id='mainContainer'>
@@ -38,7 +40,7 @@ class App extends Component {
             <TodoForm addItem={this.addItem} />
           </div>
           <div style={{width:'60%', alignSelf:'right'}}>
-            <ListBox list={this.state.list}/>
+            <ListBox list={this.state.list} removeItem={this.removeItem}/>
           </div>
         </div>
       </div>
