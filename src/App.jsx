@@ -8,13 +8,13 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      priority: '',
-      place: '',
-      name: '',
-      description: 'This description passed from App',
-      isEditable: '',
-      removable: '',
-      priorityArray: [],
+      // priority: '',
+      // place: '',
+      // name: '',
+      // description: 'This description passed from App',
+      // isEditable: '',
+      // removable: '',
+      // priorityArray: [],
       list: []
     }
     this.addItem=this.addItem.bind(this);

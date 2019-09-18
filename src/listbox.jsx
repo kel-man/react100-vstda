@@ -8,12 +8,12 @@ export default class ListBox extends Component{
         return(
             <div className='list card container' style={{padding:'0px'}} >
                 <p className='list-title'>To Do: </p>
-                <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between', alignContent:'middle'}}>
+                <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between'}}>
                 </div>
                 {storage.map((item, index) =>(
                     <ListItem 
                         key={index}
-                        title={item.title}
+                        // title={item.title}
                         description={item.description}
                         priority={item.priority} />
                 ))}

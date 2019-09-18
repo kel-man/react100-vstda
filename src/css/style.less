@@ -4,7 +4,7 @@ body {
   background: linear-gradient(to left, #b3e6eb, #6281c9);
 }
 
-.submit{
+.submit {
   background: #80ff80;
   font-family: Helvetica;
   font-size: 20px;
@@ -12,9 +12,13 @@ body {
   text-align: center !important;
   vertical-align: middle;
   white-space: nowrap;
+  width: 80%;
+  justify-content: flex-start; 
+  border-radius: 30px;
+  align-self: center;
 }
 
-.list-title{
+.list-title {
   font-size: 50px;
   background: #8080ff;
   font-weight: bold;
@@ -24,12 +28,18 @@ body {
   width: 100%;
 }
 
-.description{
-  padding:.5em;
+.form {
+  border-radius: 50px 15px 0px 0px;
+  padding-bottom: 2em;
 }
 
-.title{
-  padding:.5em;
+.description {
+  padding: .5em;
+}
+
+.editToggle {
+  align-self: flex-end;
+
 }
 
 .no-padding {
@@ -65,5 +75,32 @@ input[type=checkbox] {
 
 div.pull-right a {
   margin-left: 1em;
+}
+
+textarea[id=description] {
+  border-radius: 22px;
+  height: 80%;
+  width: 85%;
+  border: 2px solid grey;
+  align-self:center;
+}
+
+label {
+  border-left: 30px solid white;
+  border-top: 15px solid white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.priority {
+  width: 75%;
+  min-height: 100px;
+  align-self: center;
+}
+
+.ftitle {
+  color:black;
+  padding:20px;
+  background-color:#e6e6e6;
+  border-radius: 50px 15px 0px 0px;
 }
 /* You can add global styles to this file, and also import other style files */
