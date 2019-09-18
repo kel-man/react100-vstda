@@ -8,7 +8,7 @@ class TodoForm extends Component{
             title:'',
             description:'',
             isEditable:'',
-            priority:'1'
+            priority:'#29a329'
         }
         this.handleTitle=this.handleTitle.bind(this);
         this.handleDescription=this.handleDescription.bind(this);
@@ -26,6 +26,12 @@ class TodoForm extends Component{
             isEditable: this.state.isEditable
         }
         this.props.addItem(item); 
+        this.setState({
+            title:'',
+            description:'',
+            isEditable:'',
+            priority:'#29a329'
+        });
     }
     handleTitle(e){
         this.setState({
@@ -59,9 +65,9 @@ class TodoForm extends Component{
                 <input type='text' name='title' className='title' placeholder='TITLE' onChange={this.handleTitle} value={this.state.title}/>
                 <input type='text' name='description' className='description input card' placeholder='DESCRIPTION' onChange={this.handleDescription} value={this.state.description}/>
                 <select className='priority' onChange={this.handleSelect} type='number' value={this.state.priority}>
-                    <option className='low-priority' value='#66ff99' style={{backgroundColor:'green'}}>Low</option>
-                    <option className='mid-priority' value='#ffff00' style={{color:'yellow'}}>Medium</option>
-                    <option className='high-priority' value='#ff0000' style={{color:'red'}}>Critical!!!</option>
+                    <option className='low-priority' value='#29a329' style={{color:'#29a329'}}>Low</option>
+                    <option className='mid-priority' value='#b3b300' style={{color:'#b3b300'}}>Medium</option>
+                    <option className='high-priority' value='#e62e00' style={{color:'#e62e00'}}>Critical!!!</option>
                 </select>
                 <input type='checkbox' name='editToggle' onClick={this.handleToggle}/>
                 <button type='submit' className='submit card' onClick={this.handleButtonClick} style={{justifyContent:'flex-start'}}>Add Item!</button>
