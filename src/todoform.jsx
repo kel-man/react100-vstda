@@ -23,9 +23,8 @@ class TodoForm extends Component{
         }
         this.props.addItem(item); 
         this.setState({
-            // title:'',
             description:'',
-            isEditable:'',
+            isEditable:false,
             priority:'#ccffcc'
         });
     }

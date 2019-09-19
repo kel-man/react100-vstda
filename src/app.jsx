@@ -20,14 +20,15 @@ class App extends Component {
     this.setState({
       list: newList
     });
+    console.log(newList);
   }
   
-  removeItem(key){
+  removeItem(id){
     let tempItem = this.state.list;
-    // let newList = tempItem.splice(key);
-    tempItem[key] = '';
+    let newList = tempItem.splice(id, 1);
+    // tempItem[key] = '';
     this.setState({
-      list: tempItem
+      list: newList
     });
     console.log(this.state.list);
   }

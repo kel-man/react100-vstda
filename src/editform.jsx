@@ -9,7 +9,9 @@ export default class EditForm extends Component{
             isBeingEdited: false,
             isSubmitted: false,
             isComplete: false,
-            permissionsAlert: false
+            permissionsAlert: false,
+            list: this.props.list,
+            id: this.props.id
         }
         this.handleEdit=this.handleEdit.bind(this);
         this.handleRemove=this.handleRemove.bind(this);
@@ -29,7 +31,11 @@ export default class EditForm extends Component{
     }
 
     handleRemove(){
-        props.removeItem(props.key);
+        // this.props.removeItem(props.id);
+        console.log('Clicked!');
+        console.log(this.state.id);
+        this.props.removeItem(this.state.id);
+        
     }
 
     render(){
@@ -37,6 +43,7 @@ export default class EditForm extends Component{
                 <div className='button container'>
                     <input type='image' src='./editIcon.png' className='edit button' onClick={this.handleEdit}/>
                     <input type='image' src='./delete.png' className='remove button' onClick={this.handleRemove}/>
+                    {/* <input type='image' src='./delete.png' className='remove button' onClick={props} */}
                 </div>
             );
         }

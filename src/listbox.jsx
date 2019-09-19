@@ -3,6 +3,9 @@ import ListItem from './listitem';
 import EditForm from './editform';
 
 export default class ListBox extends Component{
+    removeItem(){
+        this.props.removeItem();
+    }
     render(){
         let storage = this.props.list;
         return(
@@ -15,7 +18,16 @@ export default class ListBox extends Component{
                         key={index}
                         description={item.description}
                         priority={item.priority} 
-                        removeItem={this.removeItem} />
+                        id={index}
+                        list={storage}
+                        // removeItem={() => this.removeItem(index)}
+                         />
+                ))}
+                {storage.map((item, index) =>(
+                    <EditForm
+                        key={index}
+                        id={index}
+                        removeItem={this.removeItem(index)}/>
                 ))}
             </div>
         )
