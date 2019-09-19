@@ -6,10 +6,10 @@ export default class ListBox extends Component{
     render(){
         let storage = this.props.list;
         return(
-            <div className='list card container' style={{padding:'0px'}} >
+            <div className='list container' >
                 <p className='list-title'>To Do: </p>
-                <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between'}}>
-                </div>
+                {/* <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between'}}> */}
+                {/* </div> */}
                 {storage.map((item, index) =>(
                     <ListItem 
                         key={index}

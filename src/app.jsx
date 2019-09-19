@@ -22,12 +22,14 @@ class App extends Component {
     });
   }
   
-  removeItem(index){
+  removeItem(key){
     let tempItem = this.state.list;
-    let newList = tempItem.splice(index);
+    // let newList = tempItem.splice(key);
+    tempItem[key] = '';
     this.setState({
-      list: newList
+      list: tempItem
     });
+    console.log(this.state.list);
   }
 
   render() {

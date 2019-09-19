@@ -20,17 +20,24 @@ body {
 
 .list-title {
   font-size: 50px;
-  background: #8080ff;
+  background: #80c6ff;
   font-weight: bold;
   text-align: center;
   vertical-align: middle;
-  font-family: Arial;
-  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  min-width: 13em;
+  
 }
 
-.form {
+.form.card {
   border-radius: 50px 15px 0px 0px;
   padding-bottom: 2em;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .description {
@@ -64,6 +71,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 75%
 }
 
 .button.container{
@@ -107,15 +115,24 @@ label {
   border-left: 30px solid white;
   border-top: 15px solid white;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
 }
 
 .priority {
   width: 75%;
-  min-height: 100px;
   align-self: center;
+  font-size: 14pt;
+}
+
+.list.container {
+  display:flex; 
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-radius: 15px;
 }
 
 .ftitle {
+  font-size: 15;
   color:black;
   padding:20px;
   background-color:#e6e6e6;

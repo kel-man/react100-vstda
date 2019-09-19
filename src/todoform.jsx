@@ -53,7 +53,7 @@ class TodoForm extends Component{
     }
     render(){
         return(
-            <div className='form card' style={{display:'flex', alignContent:'space-around', justifyContent:'space-around'}}>
+            <div className='form card'>
                 <h4 className='card-header ftitle'>Add New Todo </h4>
                 <label >I want to...</label>
                 <textarea type='text' id='description' className='description input card' onChange={this.handleDescription} value={this.state.description}/>
@@ -64,7 +64,7 @@ class TodoForm extends Component{
                     <option className='high-priority' value='#e62e00' style={{color:'#ff9980'}}>Critical!!!</option>
                 </select>
                 <tr >
-                <label>Enable editing?............</label>
+                <label>Enable editing?..................</label>
                 <input type='checkbox' className='editToggle' onChange={this.handleToggle}/>
                 </tr>
                 <button type='submit' className='submit card' onClick={this.handleButtonClick} >Add Item!</button>

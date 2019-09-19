@@ -11,6 +11,8 @@ export default class EditForm extends Component{
             isComplete: false,
             permissionsAlert: false
         }
+        this.handleEdit=this.handleEdit.bind(this);
+        this.handleRemove=this.handleRemove.bind(this);
     }
 
     handleEdit(){
