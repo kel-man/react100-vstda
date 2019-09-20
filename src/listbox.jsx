@@ -23,12 +23,6 @@ export default class ListBox extends Component{
                         // removeItem={() => this.removeItem(index)}
                          />
                 ))}
-                {storage.map((item, index) =>(
-                    <EditForm
-                        key={index}
-                        id={index}
-                        removeItem={this.removeItem(index)}/>
-                ))}
             </div>
         )
     }

@@ -6,8 +6,8 @@ import EditForm from './editform';
         <div >
           <p style={{backgroundColor:props.priority}} className='item-description card'>{props.description}</p>
         </div>
-        {/* <div className='edit'> */}
-          {/* <EditForm removeItem={props.removeItem} id={props.id} list={props.list}></EditForm> */}
-        {/* </div> */}
+        <div className='edit'> 
+          <EditForm removeItem={props.removeItem} id={props.id} list={props.list}></EditForm>
+        </div>
       </div>
     );
