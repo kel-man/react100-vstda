@@ -3,9 +3,6 @@ import ListItem from './listitem';
 import EditForm from './editform';
 
 export default class ListBox extends Component{
-    removeItem(){
-        this.props.removeItem();
-    }
     render(){
         let storage = this.props.list;
         return(
@@ -20,6 +17,7 @@ export default class ListBox extends Component{
                         priority={item.priority} 
                         id={index}
                         list={storage}
+                        removeItem={this.props.removeItem}
                         // removeItem={() => this.removeItem(index)}
                          />
                 ))}
