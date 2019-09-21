@@ -31,7 +31,6 @@ export default class EditForm extends Component{
     }
 
     handleRemove(){
-        // this.props.removeItem(props.id);
         console.log('Clicked!');
         console.log(this.state.id);
         this.props.removeItem(this.state.id);

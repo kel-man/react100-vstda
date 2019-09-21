@@ -8,8 +8,6 @@ export default class ListBox extends Component{
         return(
             <div className='list container' >
                 <p className='list-title'>To Do: </p>
-                {/* <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between'}}> */}
-                {/* </div> */}
                 {this.props.list.map((item, index) =>(
                     <ListItem 
                         key={index}
@@ -18,7 +16,6 @@ export default class ListBox extends Component{
                         id={item.id}
                         list={storage}
                         removeItem={this.props.removeItem}
-                        // removeItem={() => this.removeItem(index)}
                          />
                 ))}
             </div>

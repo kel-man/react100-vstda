@@ -4,10 +4,11 @@ class TodoForm extends Component{
     constructor(props){
         super(props);
         this.state={
-            item:[],
+            item:{},
             description:'',
             isEditable:false,
-            priority:'#ccffcc'
+            priority:'#ccffcc',
+            id:''
         }
         this.handleDescription=this.handleDescription.bind(this);
         this.handleSelect=this.handleSelect.bind(this);
