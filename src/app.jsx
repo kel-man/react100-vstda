@@ -12,6 +12,7 @@ class App extends Component {
     }
     this.addItem=this.addItem.bind(this);
     this.removeItem=this.removeItem.bind(this);
+    // this.removeEvent=this.removeEvent.bind(this);
   }
 
   addItem(data){
@@ -23,13 +24,17 @@ class App extends Component {
     console.log(newList);
   }
   
-  removeItem(id){
-    let tempItem = this.state.list;
-    let newList = tempItem.splice(id, 1);
-    // tempItem[key] = '';
+  removeItem(data){
+    // let tempItem = this.state.list;
+    let list = this.state.list;
+    let location = this.state.list.findIndex(obj => obj.id === data);
+    // tempItem.map(function(x) {return x.id; }).indexOf(data);
+    // if(location<0){location=0}
+    list.splice(location, 1);
     this.setState({
-      list: newList
+      list: list
     });
+    console.log(location);
     console.log(this.state.list);
   }
 

@@ -10,12 +10,12 @@ export default class ListBox extends Component{
                 <p className='list-title'>To Do: </p>
                 {/* <div style={{padding: '15px', display:'flex', flexFlow:'row wrap', justifyContent:'space-between'}}> */}
                 {/* </div> */}
-                {storage.map((item, index) =>(
+                {this.props.list.map((item, index) =>(
                     <ListItem 
                         key={index}
                         description={item.description}
                         priority={item.priority} 
-                        id={index}
+                        id={item.id}
                         list={storage}
                         removeItem={this.props.removeItem}
                         // removeItem={() => this.removeItem(index)}
