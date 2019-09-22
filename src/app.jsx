@@ -22,14 +22,11 @@ class App extends Component {
     console.log(newList);
   }
   
-  removeItem(data){
-    let list = this.state.list;
-    let location = this.state.list.findIndex(obj => obj.id === data);
-    list.splice(location, 1); //Need to use .filter here as per zach
+  removeItem(id){
+    let newList = this.state.list.filter(item => item.id!==id)
     this.setState({
-      list: list
-    });
-    console.log(location);
+      list: newList
+    })
     console.log(this.state.list);
   }
 

@@ -17,12 +17,11 @@ class TodoForm extends Component{
     }
 
     handleButtonClick(){
-        var id = Math.random().toString(36).substr(2,9);
         var item = {
+            id: Math.random()+1,
             description: this.state.description, 
             priority: this.state.priority,
-            isEditable: this.state.isEditable,
-            id: id
+            isEditable: this.state.isEditable
         }
         this.props.addItem(item); 
         this.setState({
