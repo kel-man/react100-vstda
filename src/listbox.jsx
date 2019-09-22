@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 import ListItem from './listitem';
-import EditForm from './editform';
 
 export default class ListBox extends Component{
+
+
     render(){
-        let storage = this.props.list;
+        var RightComponent;
+        if (this.props.mode === 'edit'){
+          RightComponent = <EditForm/>
+        } else {
+          RightComponent = this.props.list.map((item, index) =>(
+            <ListItem 
+                key={index}
+                description={item.description}
+                priority={item.priority} 
+                id={item.id}
+                removeItem={this.props.removeItem}
+                 />
+            ));
+        }
         return(
             <div className='list container' >
                 <p className='list-title'>To Do: </p>
-                {this.props.list.map((item, index) =>(
+                {RightComponent}
+                {/* {this.props.list.map((item, index) =>(
                     <ListItem 
                         key={index}
                         description={item.description}
@@ -17,7 +32,7 @@ export default class ListBox extends Component{
                         list={storage}
                         removeItem={this.props.removeItem}
                          />
-                ))}
+                ))} */}
             </div>
         )
     }

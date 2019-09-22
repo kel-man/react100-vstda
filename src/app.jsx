@@ -7,12 +7,18 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      list: []
+      list: [],
+      mode: 'display',
+      selected: ''
     }
     this.addItem=this.addItem.bind(this);
     this.removeItem=this.removeItem.bind(this);
   }
 
+  changeItem(data){
+    let list ;
+  }
+  
   addItem(data){
     let tempItem = this.state.list;
     let newList = tempItem.concat([data]);
@@ -29,6 +35,7 @@ class App extends Component {
     })
     console.log(this.state.list);
   }
+  
 
   render() {
     return (
@@ -40,7 +47,7 @@ class App extends Component {
             <TodoForm addItem={this.addItem} />
           </div>
           <div style={{width:'60%', alignSelf:'right'}}>
-            <ListBox list={this.state.list} removeItem={this.removeItem}/>
+            <ListBox list={this.state.list} removeItem={this.removeItem} mode={this.state.mode}/>
           </div>
         </div>
       </div>
@@ -48,4 +55,3 @@ class App extends Component {
   }
 }
 export default App;
-    
