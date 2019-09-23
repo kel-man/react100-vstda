@@ -5,8 +5,13 @@ export default class EditForm extends Component{
  
     render(){
             return(
-                <div className='button container'>
-                    This is an edit form
+                <div>
+                    <div>
+                        <h2>{this.props.item}</h2>
+                    </div>
+                    <div className='button container'>
+                        <button onClick={() => {this.props.changeItem(this.props.item)}}/>
+                    </div>
                 </div>
             );
         }

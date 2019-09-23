@@ -9,14 +9,39 @@ class App extends Component {
     this.state={
       list: [],
       mode: 'display',
-      selected: ''
+      selectedItem: [],
+      selectedId: '',
+      alert: 'off'
     }
     this.addItem=this.addItem.bind(this);
     this.removeItem=this.removeItem.bind(this);
+    this.editItem=this.editItem.bind(this);
+    this.changeItem=this.changeItem.bind(this);
   }
 
-  changeItem(data){
-    let list ;
+  changeItem(item){
+    console.log(item)
+    this.setState({
+      mode: 'display'
+    });
+  }
+
+  editItem(id){
+    let i = this.state.list.find(item => item.id===id);
+    let item = [{id:id}, i]
+    if(i.isEditable === true){
+      console.log(item);
+      console.log(this.state.selectedItem);
+      this.setState({
+        mode: 'edit',
+        // selectedItem: item,
+        alert: 'off'
+      });
+    } else {
+      this.setState({
+        alert: 'on'
+      })
+    }
   }
   
   addItem(data){
@@ -47,7 +72,15 @@ class App extends Component {
             <TodoForm addItem={this.addItem} />
           </div>
           <div style={{width:'60%', alignSelf:'right'}}>
-            <ListBox list={this.state.list} removeItem={this.removeItem} mode={this.state.mode}/>
+             <ListBox list={this.state.list} 
+                      removeItem={this.removeItem} 
+                      mode={this.state.mode} 
+                      editItem={this.editItem} 
+                      item={this.state.selectedItem} 
+                      changeItem={this.changeItem} 
+                      id={this.state.selectedId}
+                      alert={this.state.alert}
+                      />
           </div>
         </div>
       </div>
