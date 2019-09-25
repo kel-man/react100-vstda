@@ -28,7 +28,6 @@ export default class ListBox extends Component{
         return(
             <div className='list container'>
                 <h2 className='list-title'>View Todos</h2>
-                <hr style={{borderTop:'3px solid blue'}}/>
                 {display}
             </div>
         )

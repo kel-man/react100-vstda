@@ -55,7 +55,7 @@ class TodoForm extends Component{
             <div className='form card'>
                 <h4 className='card-header ftitle'>Add New Todo </h4>
                 <label >I want to...</label>
-                <textarea type='text' id='description' className='description input card' onChange={this.handleDescription} value={this.state.description}/>
+                <textarea type='text' id='description' className='description input card create-todo-text' onChange={this.handleDescription} value={this.state.description}/>
                 <label>How much of a priority is this?</label>
                 <select className='priority' onChange={this.handleSelect} type='number' value={this.state.priority}>
                     <option className='low-priority' value='#29a329' style={{color:'#ccffcc'}}>Low</option>
@@ -66,7 +66,7 @@ class TodoForm extends Component{
                 <label style={{width:'70%'}}>Enable editing?..................</label>
                 <input type='checkbox' className='editToggle' onChange={this.handleToggle}/>
                 </div>
-                <button type='submit' className='submit card' onClick={this.handleButtonClick} >Add Item!</button>
+                <button type='submit' className='submit card add-todo' onClick={this.handleButtonClick} >Add Item!</button>
             </div>
         );
     }
