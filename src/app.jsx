@@ -17,24 +17,37 @@ class App extends Component {
     this.removeItem=this.removeItem.bind(this);
     this.editItem=this.editItem.bind(this);
     this.changeItem=this.changeItem.bind(this);
+    this.findIndexById=this.findIndexById.bind(this);
+  }
+
+  findIndexById(data){
+    for(let i=0; i<this.state.list.length; i++){
+      if(this.state.list[i]['id'] === data){
+        return i;
+      }
+    }
+    return -1;
   }
 
   changeItem(item){
-    console.log(item)
+    let index = this.findIndexById(item.id);
+    let newList = this.state.list;
+    newList[index]= item;
+    console.log(index);
     this.setState({
+      list: newList,
       mode: 'display'
     });
   }
 
   editItem(id){
-    let i = this.state.list.find(item => item.id===id);
-    let item = [{id:id}, i]
-    if(i.isEditable === true){
+    let item = this.state.list.find(item => item.id===id);
+    if(item.isEditable === true){
       console.log(item);
-      console.log(this.state.selectedItem);
       this.setState({
         mode: 'edit',
-        // selectedItem: item,
+        selectedId: id,
+        selectedItem: item,
         alert: 'off'
       });
     } else {
@@ -50,7 +63,7 @@ class App extends Component {
     this.setState({
       list: newList
     });
-    console.log(newList);
+    // console.log(newList);
   }
   
   removeItem(id){
@@ -58,7 +71,7 @@ class App extends Component {
     this.setState({
       list: newList
     })
-    console.log(this.state.list);
+    // console.log(this.state.list);
   }
   
 
@@ -76,9 +89,9 @@ class App extends Component {
                       removeItem={this.removeItem} 
                       mode={this.state.mode} 
                       editItem={this.editItem} 
-                      item={this.state.selectedItem} 
+                      selectedItem={this.state.selectedItem} 
                       changeItem={this.changeItem} 
-                      id={this.state.selectedId}
+                      selectedId={this.state.selectedId}
                       alert={this.state.alert}
                       />
           </div>
