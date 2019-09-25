@@ -18,7 +18,6 @@ class App extends Component {
     this.editItem=this.editItem.bind(this);
     this.changeItem=this.changeItem.bind(this);
     this.findIndexById=this.findIndexById.bind(this);
-    this.completeItem=this.completeItem.bind(this);
   }
 
   findIndexById(data){
@@ -28,18 +27,6 @@ class App extends Component {
       }
     }
     return -1;
-  }
-
-  completeItem(){
-    // let index = this.findIndexById(id);
-    // let newList=this.state.list;
-    // let item = newList[index];
-    // item.completion='line-through';
-    // newList[index]=item;
-    // this.setState({
-    //   list: newList
-    // })
-    // console.log(item);
   }
 
   changeItem(item){

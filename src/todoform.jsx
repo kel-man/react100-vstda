@@ -21,8 +21,7 @@ class TodoForm extends Component{
             id: Math.random()+1,
             description: this.state.description, 
             priority: this.state.priority,
-            isEditable: this.state.isEditable,
-            completion: ''
+            isEditable: this.state.isEditable
         }
         this.props.addItem(item); 
         this.setState({

@@ -21,7 +21,6 @@ export default class ListBox extends Component{
                 id={item.id}
                 removeItem={this.props.removeItem}
                 editItem={this.props.editItem}
-                completeItem={this.props.completeItem}
                 />
             ));
         }

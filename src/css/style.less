@@ -62,7 +62,7 @@ input[type=checkbox] {
   padding: 1em;
 }
 
-input[type=checkbox].complete.button{
+input[type=checkbox].complete.button:checked + label{
   text-decoration: line-through;
 }
 
@@ -110,6 +110,21 @@ input[type=checkbox].complete.button{
   width: 100%
 }
 
+.well-description {
+  background-color: #ccffcc;
+  border-width: 1px;
+  border-color: gray;
+  border-style: groove;
+  font-size: 14pt;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 25%;
+}
+
+.one-line {
+  display: flex;
+  flex-flow: row;
+}
+
 .button-container{
   display: flex;
   flex-flow: column wrap;
@@ -144,11 +159,6 @@ input[type=checkbox].complete.button{
 
 .white {
   color: white !important;
-}
-
-
-.strike-through {
-  text-decoration: line-through;
 }
 
 strong + small {

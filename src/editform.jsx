@@ -19,8 +19,7 @@ export default class EditForm extends Component{
             id: this.props.selectedId,
             description: this.state.editDescription,
             priority: this.state.editPriority,
-            isEditable: true,
-            completion: ''
+            isEditable: true
         }
         this.props.changeItem(item);
     }
