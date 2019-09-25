@@ -21,7 +21,8 @@ class TodoForm extends Component{
             id: Math.random()+1,
             description: this.state.description, 
             priority: this.state.priority,
-            isEditable: this.state.isEditable
+            isEditable: this.state.isEditable,
+            completion: ''
         }
         this.props.addItem(item); 
         this.setState({
@@ -44,8 +45,7 @@ class TodoForm extends Component{
             this.setState({
                 isEditable: false
             })
-        }
-        {
+        } else if (this.state.isEditable === false){
             this.setState({
                 isEditable: true
             })
@@ -60,10 +60,10 @@ class TodoForm extends Component{
                 <label>How much of a priority is this?</label>
                 <select className='priority' onChange={this.handleSelect} type='number' value={this.state.priority}>
                     <option className='low-priority' value='#29a329' style={{color:'#ccffcc'}}>Low</option>
-                    <option className='mid-priority' value='#b3b300' style={{color:'#ff8000'}}>High</option>
-                    <option className='high-priority' value='#e62e00' style={{color:'#ff9980'}}>Critical!!!</option>
+                    <option className='mid-priority' value='#ffff99' style={{color:'#ff8000'}}>High</option>
+                    <option className='high-priority' value='#ff4d4d' style={{color:'#ff9980'}}>Critical!!!</option>
                 </select>
-                <div style={{display:'flex', flexFlow:'row'}}>
+                <div className='checkbox-div'>
                 <label style={{width:'70%'}}>Enable editing?..................</label>
                 <input type='checkbox' className='editToggle' onChange={this.handleToggle}/>
                 </div>

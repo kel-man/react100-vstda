@@ -4,6 +4,68 @@ body {
   background: linear-gradient(to left, #b3e6eb, #6281c9);
 }
 
+.ftitle {
+  font-size: 15;
+  color:black;
+  padding:20px;
+  background-color:#e6e6e6;
+  border-radius: 50px 15px 0px 0px;
+}
+
+.form.card {
+  border-radius: 50px 15px 0px 0px;
+  padding-bottom: 2em;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+textarea[id=description] {
+  border-radius: 22px;
+  height: 80%;
+  width: 85%;
+  border: 2px solid grey;
+  align-self: center;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 8em;
+  max-height: 16em;
+}
+
+label {
+  border-left: 30px solid white;
+  border-top: 15px solid white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+
+.priority {
+  width: 82%;
+  align-self: center;
+  font-size: 14pt;
+}
+
+.checkbox-div {
+  display: flex; 
+  flex-flow: row; 
+  justify-content: space-between;
+}
+
+input[type=checkbox] {
+  align-self: flex-end;
+  margin-right: 1em;
+  width: 50px;
+  height: 50px;
+  padding: 1em;
+}
+
+input[type=checkbox].complete.button{
+  text-decoration: line-through;
+}
+
 .submit {
   background: #80ff80;
   font-family: Helvetica;
@@ -18,26 +80,21 @@ body {
   align-self: center;
 }
 
-.list-title {
-  font-size: 50px;
-  background: #80c6ff;
-  font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  min-width: 13em;
-  
+.list.container {
+  display: flex; 
+  flex-flow: column wrap;
+  border-radius: 15px;
+  background-color: #ccffcc;
+  height: 100%;
 }
 
-.form.card {
-  border-radius: 50px 15px 0px 0px;
-  padding-bottom: 2em;
+.list-title {
+  font-size: 25px;
+  background: #ccffcc;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 60%;
   display: flex;
-  flex-flow: column;
-  justify-content: space-between;
+  min-width: 13em;
 }
 
 .description {
@@ -46,13 +103,27 @@ body {
   align-self: flex-start;
 }
 
-.editToggle {
-  align-self: flex-end;
+.well.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%
 }
+
+.button-container{
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-end;
+} 
 
 .edit {
   justify-content: flex-end;
   justify-self: flex-end;
+}
+
+.edit.container{
+  background-color: #ccffcc;
+  justify-content: space-around;
 }
 
 .change-button {
@@ -75,77 +146,18 @@ body {
   color: white !important;
 }
 
-.well.list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  width: 75%
-}
-
-.button.container{
-  display: flex;
-  flex-flow: column wrap;
-  align-content: flex-end;
-} 
 
 .strike-through {
   text-decoration: line-through;
-}
-
-textarea {
-  width: 100%;
-  max-width: 100%;
-  min-height: 8em;
-  max-height: 16em;
 }
 
 strong + small {
   display: block;
 }
 
-input[type=checkbox] {
-  margin-right: 1em;
-  width: 50px;
-  height: 50px;
-}
-
 div.pull-right a {
   margin-left: 1em;
 }
 
-textarea[id=description] {
-  border-radius: 22px;
-  height: 80%;
-  width: 85%;
-  border: 2px solid grey;
-  align-self:center;
-}
 
-label {
-  border-left: 30px solid white;
-  border-top: 15px solid white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12pt;
-}
-
-.priority {
-  width: 75%;
-  align-self: center;
-  font-size: 14pt;
-}
-
-.list.container {
-  display:flex; 
-  flex-flow: row wrap;
-  justify-content: space-between;
-  border-radius: 15px;
-}
-
-.ftitle {
-  font-size: 15;
-  color:black;
-  padding:20px;
-  background-color:#e6e6e6;
-  border-radius: 50px 15px 0px 0px;
-}
 /* You can add global styles to this file, and also import other style files */

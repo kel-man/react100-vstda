@@ -5,7 +5,8 @@ export default class ListItem extends Component{
     return(
       <div className='well list' style={{backgroundColor:this.props.priority}}>
         <div >
-          <p style={{backgroundColor:this.props.priority}} className='item-description card'>{this.props.description}</p>
+          <input type='checkbox' className='complete button' onChange={() => {this.props.completeItem(this.props)}}/>
+          <p style={{backgroundColor:this.props.priority, textDecoration:this.props.completion}} className={this.props.completion}>{this.props.description}</p>
         </div>
         <div className='edit'> 
           <div className='button container'>

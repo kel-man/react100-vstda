@@ -12,7 +12,7 @@ export default class ListBox extends Component{
                               selectedItem={this.props.selectedItem} 
                               selectedId={this.props.selectedId}
                               />
-        } else if (this.props.mode === 'display' && this.props.alert === 'on') {
+        } else {
           display = this.props.list.map((item, index) =>(
             <ListItem 
                 key={index}
@@ -21,24 +21,15 @@ export default class ListBox extends Component{
                 id={item.id}
                 removeItem={this.props.removeItem}
                 editItem={this.props.editItem}
+                completeItem={this.props.completeItem}
                 />
             ));
         }
-        else if (this.props.mode === 'display' && this.props.alert === 'off') {
-          display = this.props.list.map((item, index) => (
-            <ListItem
-                key={index}
-                description={item.description}
-                priority={item.priority}
-                id={item.id}
-                removeItem={this.props.removeItem}
-                editItem={this.props.editItem}
-                />
-          ));
-        }
+
         return(
-            <div className='list container' >
-                <p className='list-title'>To Do: </p>
+            <div className='list container'>
+                <h2 className='list-title'>View Todos</h2>
+                <hr style={{borderTop:'3px solid blue'}}/>
                 {display}
             </div>
         )

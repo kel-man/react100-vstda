@@ -18,6 +18,7 @@ class App extends Component {
     this.editItem=this.editItem.bind(this);
     this.changeItem=this.changeItem.bind(this);
     this.findIndexById=this.findIndexById.bind(this);
+    this.completeItem=this.completeItem.bind(this);
   }
 
   findIndexById(data){
@@ -29,11 +30,22 @@ class App extends Component {
     return -1;
   }
 
+  completeItem(){
+    // let index = this.findIndexById(id);
+    // let newList=this.state.list;
+    // let item = newList[index];
+    // item.completion='line-through';
+    // newList[index]=item;
+    // this.setState({
+    //   list: newList
+    // })
+    // console.log(item);
+  }
+
   changeItem(item){
     let index = this.findIndexById(item.id);
     let newList = this.state.list;
     newList[index]= item;
-    console.log(index);
     this.setState({
       list: newList,
       mode: 'display'
@@ -43,7 +55,6 @@ class App extends Component {
   editItem(id){
     let item = this.state.list.find(item => item.id===id);
     if(item.isEditable === true){
-      console.log(item);
       this.setState({
         mode: 'edit',
         selectedId: id,
@@ -63,7 +74,6 @@ class App extends Component {
     this.setState({
       list: newList
     });
-    // console.log(newList);
   }
   
   removeItem(id){
@@ -71,11 +81,16 @@ class App extends Component {
     this.setState({
       list: newList
     })
-    // console.log(this.state.list);
   }
   
 
   render() {
+    var alert;
+    if (this.state.alert==='on'){
+      alert=<div className='alert'>You do not have permission to access this item!</div>
+    } else {
+      alert=<div></div>
+    }
     return (
       <div className='container' id='mainContainer'>
         <h1 style={{color:'black', padding:'20px'}}>Very Simple To-Do Application</h1>
@@ -85,7 +100,7 @@ class App extends Component {
             <TodoForm addItem={this.addItem} />
           </div>
           <div style={{width:'60%', alignSelf:'right'}}>
-             <ListBox list={this.state.list} 
+            <ListBox  list={this.state.list} 
                       removeItem={this.removeItem} 
                       mode={this.state.mode} 
                       editItem={this.editItem} 
@@ -93,11 +108,14 @@ class App extends Component {
                       changeItem={this.changeItem} 
                       selectedId={this.state.selectedId}
                       alert={this.state.alert}
+                      completeItem={this.completeItem}
                       />
+            {alert}
           </div>
         </div>
       </div>
     );
   }
 }
+
 export default App;
