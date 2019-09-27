@@ -41,15 +41,15 @@ export default class EditForm extends Component{
             <div>
                 <div className='edit container'>
                     <h4 className='edit-title'>Edit To-Do Item</h4>
-                    <label className='edit-label'>I want to... </label>
+                    <p className='edit-label'>I want to... </p>
                     <textarea type='text' className='edit-description' id='description' onChange={this.handleEditDescription} value={this.state.editDescription}></textarea>
-                    <label className='priority-label'>Change priority level?</label>
+                    <p className='priority-label'>Change priority level?</p>
                     <select className='priority-card' onChange={this.handleEditPriority} value={this.state.editPriority}>
                         <option className='low-priority' value='#29a329'>Low</option>
                         <option className='mid-priority' value='#ffff99'>High</option>
                         <option className='high-priority' value='#ff4d4d'>Critical!!!</option>
                     </select>
-                    <button className='change-button' placeholder='Change' onClick={this.handleEditButtonClick}/>
+                    <button className='change-button' placeholder='Change' onClick={this.handleEditButtonClick}>Done editing!</button>
                 </div>
             </div>
         );

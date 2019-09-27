@@ -27,8 +27,10 @@ export default class ListBox extends Component{
 
         return(
             <div className='list container'>
-                <h2 className='list-title'>View Todos</h2>
-                {display}
+                <h2 className='list-title card-header'>View Todos</h2>
+                <div className='list-contents'>
+                    {display}
+                </div>
             </div>
         )
     }

@@ -66,7 +66,9 @@ class TodoForm extends Component{
                 <label style={{width:'70%'}}>Enable editing?..................</label>
                 <input type='checkbox' className='editToggle' onChange={this.handleToggle}/>
                 </div>
-                <button type='submit' className='submit card add-todo' onClick={this.handleButtonClick} >Add Item!</button>
+                <footer className='form-footer'>
+                    <button type='submit' className='submit card add-todo' onClick={this.handleButtonClick} >Add Item!</button>
+                </footer>
             </div>
         );
     }

@@ -54,7 +54,7 @@ label {
   justify-content: space-between;
 }
 
-input[type=checkbox] {
+input[type=checkbox].editToggle {
   align-self: flex-end;
   margin-right: 1em;
   width: 50px;
@@ -62,7 +62,14 @@ input[type=checkbox] {
   padding: 1em;
 }
 
-input[type=checkbox].complete.button:checked + label{
+.form-footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=checkbox].complete-button:checked + p{
   text-decoration: line-through;
 }
 
@@ -75,7 +82,7 @@ input[type=checkbox].complete.button:checked + label{
   vertical-align: middle;
   white-space: nowrap;
   width: 80%;
-  justify-content: flex-start; 
+  justify-content: center; 
   border-radius: 30px;
   align-self: center;
 }
@@ -84,40 +91,48 @@ input[type=checkbox].complete.button:checked + label{
   display: flex; 
   flex-flow: column wrap;
   border-radius: 15px;
-  background-color: #ccffcc;
+  background-color: #97a09786;
   height: 100%;
 }
 
 .list-title {
+  padding-top: 10px;
+  justify-content: center;
   font-size: 25px;
-  background: #ccffcc;
+  background: #eaf370;
   font-family: Arial, Helvetica, sans-serif;
-  width: 60%;
+  width: 100%;
   display: flex;
   min-width: 13em;
 }
 
 .description {
-  padding: 15px;
-  width: 80%;
+  width: 100%;
   align-self: flex-start;
 }
 
+.list-contents {
+  height: 80%;
+  background: #e6ffff;
+  padding-bottom: 10px;
+}
+
 .well.list {
+  padding: 0;
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 0px 0px 0px;
 }
 
 .well-description {
-  background-color: #ccffcc;
-  border-width: 1px;
-  border-color: gray;
-  border-style: groove;
-  font-size: 14pt;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 25%;
+  font-size: 12pt;
+  vertical-align: center;
+  flex-flow: row wrap;
+  padding-left: 1em;
+  padding-top: 10px;
 }
 
 .one-line {
@@ -131,20 +146,17 @@ input[type=checkbox].complete.button:checked + label{
   align-content: flex-end;
 } 
 
-.edit {
-  justify-content: flex-end;
-  justify-self: flex-end;
-}
-
 .edit.container{
   background-color: #ccffcc;
   justify-content: space-around;
+  display: flex;
+  flex-flow: column;
 }
 
 .change-button {
   border-radius: 15px;
   border-width: 3px;
-  height: 2em;
+  height: 4em;
   width: 5em;
   background-color: rgba(255, 208, 0, 0.945);
 }
@@ -161,13 +173,13 @@ input[type=checkbox].complete.button:checked + label{
   color: white !important;
 }
 
+.complete-div {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
 strong + small {
   display: block;
 }
-
-div.pull-right a {
-  margin-left: 1em;
-}
-
 
 /* You can add global styles to this file, and also import other style files */
